@@ -1,0 +1,155 @@
+/* ขนาดตามดีไซน์ Figma: กว้าง 402px สูงรวม 3885px
+   หน้าแรก 874 + แกลเลอรี 1273 + ABOUT/INSPIRED/CONTACT 1193 + ส่วนท้าย 545 = 3885 */
+:root{
+  --teal:#06232d;
+  --gallery:#2c4247;
+  --gold:#a68e58;
+  --cream:#f3e3a8;
+  --beige:#dacdb9;
+  --olive:#9d8750;
+  --paper:#f7f7f6;
+  --ink:#0a0a0a;
+  --line:#1d3036;
+  --font-title:'Cinzel Decorative', serif;
+  --font-serif:'Cinzel', serif;
+  --font-hero:'Eater', cursive;
+  --font-nav:'Metal Mania', cursive;
+  --font-th:'Sarabun', sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#111;font-family:var(--font-th);color:#fff}
+a{color:inherit}
+img{display:block}
+.sym{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.1;stroke-linejoin:round}
+.page{width:100%;max-width:402px;margin:0 auto;background:var(--teal);overflow:hidden;position:relative}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;height:874px;color:var(--ink);overflow:hidden;
+  background:url('images/hero.png') top center/100% auto no-repeat, var(--paper);
+}
+.hero h1,.hero p{ /* ข้อความอยู่ในรูปพื้นหลังแล้ว ถ้าใช้รูปที่ไม่มีข้อความ ให้ลบกฎนี้ออก */
+  position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.circle{position:absolute;left:82px;top:355px;width:226px;height:236px;border-radius:50%}
+.btn{
+  position:absolute;left:21px;width:185px;height:54px;display:grid;place-items:center;text-decoration:none;
+  font-family:var(--font-title);font-weight:700;font-size:20px;letter-spacing:.5px;color:var(--cream);
+  background:
+    repeating-linear-gradient(104deg, transparent 0 16px, rgba(255,255,255,.55) 16px 17px, transparent 17px 31px),
+    #050505;
+  border:3px solid transparent;transition:.25s;
+}
+.btn:nth-child(1){top:48px}
+.btn:nth-child(2){top:150px}
+.btn.gold{border-color:var(--gold)}
+@media (hover:hover){ .btn:hover{background:var(--gold);color:var(--ink)} }
+.btn:active{background:var(--gold);color:var(--ink);transform:scale(.97)}
+
+/* ---------- NAV (ล็อกไว้ด้านล่างจอ) ---------- */
+nav{
+  position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:402px;height:65px;
+  z-index:20;background:#161616;font-family:var(--font-nav);font-size:21px;white-space:nowrap;
+}
+nav a{
+  position:absolute;top:50%;transform:translate(-50%,-50%);text-decoration:none;color:#fff;
+  text-shadow:0 0 6px rgba(255,255,255,.85);padding:2px 0;
+}
+nav a:nth-child(1){left:25%}
+nav a:nth-child(2){left:50%}
+nav a:nth-child(3){left:75%}
+nav a::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--gold);transition:.25s}
+@media (hover:hover){ nav a:hover::after{width:100%} }
+nav a:active::after{width:100%}
+
+/* ---------- GALLERY ---------- */
+.gallery{
+  position:relative;height:1273px;padding-top:63px;
+  background:url('images/gallery.png') top center/100% auto no-repeat, var(--gallery);
+}
+.cards{display:flex;flex-direction:column;gap:42px;align-items:flex-end;padding-right:61px}
+.card{
+  position:relative;display:flex;flex-direction:column;justify-content:flex-start;align-items:stretch;padding:0;
+  width:178px;height:265px;background:var(--gold);color:#fff;cursor:pointer;border:0;text-align:left;
+  font-family:var(--font-serif);transition:transform .3s, box-shadow .3s;
+}
+.card img{width:100%;height:180px;object-fit:cover}
+.card .info{position:absolute;left:12px;right:12px;top:190px;display:block}
+.card .t{display:block;font-size:10.5px;font-weight:700;letter-spacing:.3px;line-height:1.25}
+.card .s{display:block;font-size:9px;font-weight:600;margin-top:3px;letter-spacing:.3px}
+.arrow{
+  position:absolute;right:10px;bottom:9px;width:48px;height:22px;border-radius:11px;background:#000;color:#fff;
+  display:grid;place-items:center;font-family:var(--font-th);font-size:14px;line-height:1;
+}
+@media (hover:hover){ .card:hover{transform:translateY(-8px);box-shadow:0 14px 24px rgba(0,0,0,.45)} }
+.card:active{transform:translateY(-4px) scale(.98)}
+
+/* ---------- ABOUT / INSPIRED / CONTACT ---------- */
+.beige{background:var(--beige);color:var(--ink);min-height:1193px;padding:20px 24px 0}
+.box{border:1px solid var(--line)}
+.box h2{
+  font-family:var(--font-title);font-size:30px;font-weight:700;line-height:1;
+  height:68px;padding:0 14px;display:flex;align-items:center;border-bottom:1px solid var(--line);
+}
+.b1{min-height:445px}
+.b2{min-height:404px;border-top:0;padding-bottom:24px}
+.photo{display:block;width:calc(100% - 32px);height:190px;margin:14px 16px 0;object-fit:cover;object-position:50% 18%}
+.body{padding:0 16px;font-size:12px;line-height:1.55}
+.b1 .body p.gap{margin-top:14px}
+.b1 .body{padding-top:12px;padding-bottom:18px}
+.b2 .body{padding-top:16px}
+.inspired{display:flex;justify-content:space-between;padding:0 22px;margin-top:28px}
+.inspired img{width:124px;height:195px;object-fit:contain;background:#fff;border:1px solid var(--line)}
+
+.contact{position:relative;height:272px}
+.contact h2{
+  position:absolute;left:22px;top:32px;font-family:var(--font-title);font-size:30px;font-weight:700;line-height:1;
+}
+.soc{
+  position:absolute;top:108px;width:46px;height:46px;border-radius:9px;display:grid;place-items:center;
+  color:#fff;transition:transform .25s;padding:11px;
+}
+.soc.x{left:130px;background:#000}
+.soc.ig{left:229px;background:linear-gradient(45deg,#f9a03f,#e0245e 50%,#5b51d8)}
+@media (hover:hover){ .soc:hover{transform:translateY(-3px)} }
+.soc:active{transform:scale(.92)}
+.addr{
+  position:absolute;left:0;right:0;top:186px;text-align:center;font-family:var(--font-serif);font-weight:700;
+  font-size:15px;letter-spacing:.3px;text-decoration:underline;text-underline-offset:3px;
+}
+
+/* ---------- FOOTER ---------- */
+footer{position:relative;height:440px;background:var(--olive);color:#f6efe0;font-family:var(--font-serif)}
+.soc-o{
+  position:absolute;top:40px;width:45px;height:45px;border:1.5px solid #f6efe0;border-radius:10px;
+  display:grid;place-items:center;padding:10px;transition:.25s;
+}
+@media (hover:hover){ .soc-o:hover{background:rgba(255,255,255,.2)} }
+.fl{position:absolute;transform:translateY(-50%);font-size:16px;font-weight:600;letter-spacing:1px;text-decoration:none;line-height:1}
+@media (hover:hover){ .fl:hover{text-decoration:underline} }
+.f-bottom{position:absolute;left:38px;right:38px;top:318px;display:flex;justify-content:space-between;font-size:11px;font-weight:700;letter-spacing:.5px}
+.f-bottom a{text-decoration:underline}
+
+/* ---------- Scroll reveal ---------- */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s, transform .7s}
+.reveal.show{opacity:1;transform:none}
+
+/* ---------- DETAIL VIEW ---------- */
+.modal{
+  position:fixed;inset:0;max-width:402px;margin:0 auto;background:var(--teal);z-index:50;display:none;overflow-y:auto;
+}
+.modal.open{display:block}
+.sheet{position:relative;padding:118px 0 80px;min-height:874px}
+.close{
+  position:absolute;top:40px;right:34px;width:58px;height:58px;border-radius:50%;background:#000;color:var(--cream);
+  border:0;cursor:pointer;padding:15px;transition:.2s;
+}
+@media (hover:hover){ .close:hover{background:var(--gold);color:#000} }
+.modal .art{width:203px;height:287px;object-fit:cover;margin:0 auto}
+.modal h2{margin:27px 0 0 52px;font-family:var(--font-title);font-size:22px;font-weight:700;line-height:1.2;letter-spacing:.3px}
+.modal .sub{margin:14px 0 0 52px;font-family:var(--font-title);font-size:15px;font-weight:700;letter-spacing:.3px}
+.modal .desc{margin:24px 0 0 54px;width:330px;font-size:12px;line-height:1.5;text-align:justify}
+.modal h3{margin:28px 0 0 31px;font-family:var(--font-title);font-size:24px;font-weight:700;line-height:1}
+.modal .plabel{margin:20px 0 0 31px;font-size:12px}
+.modal ol{margin:4px 24px 0 31px;padding-left:22px;font-size:12px;line-height:1.5}
+.modal ol li{padding-left:2px}
